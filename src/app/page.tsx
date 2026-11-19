@@ -107,13 +107,21 @@ export default function Home() {
             <img src="/icon.svg" alt="" className="h-8 w-8 rounded-lg" />
             <span>Cryzo</span>
           </Link>
-          <Link
-            href={isAuthenticated ? "/chat" : "/login?next=/chat"}
-            className="inline-flex h-9 items-center gap-2 rounded-lg border border-zinc-700 bg-zinc-950/70 px-3 text-sm font-medium text-white transition-colors hover:border-zinc-500 hover:bg-zinc-900"
-          >
-            {isAuthenticated ? "Go to app" : "Sign in"}
-            <ArrowRight size={15} />
-          </Link>
+          <div className="flex items-center gap-2">
+            <Link
+              href="/download"
+              className="inline-flex h-9 items-center rounded-lg px-3 text-sm text-zinc-300 transition-colors hover:bg-zinc-900 hover:text-white"
+            >
+              Cryzo Desktop
+            </Link>
+            <Link
+              href={isAuthenticated ? "/chat" : "/login?next=/chat"}
+              className="inline-flex h-9 items-center gap-2 rounded-lg border border-zinc-700 bg-zinc-950/70 px-3 text-sm font-medium text-white transition-colors hover:border-zinc-500 hover:bg-zinc-900"
+            >
+              {isAuthenticated ? "Go to app" : "Sign in"}
+              <ArrowRight size={15} />
+            </Link>
+          </div>
         </header>
 
         <section className="flex flex-1 items-center px-5 py-10 sm:px-8">
@@ -152,7 +160,7 @@ export default function Home() {
         <footer className="px-5 pb-5 sm:px-8">
           <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[11px] text-zinc-600">
             <span>© 2026 Cryzo, a product of Tenacious Finance LLC</span>
-            <Link href="/download" className="transition-colors hover:text-zinc-300">Download</Link>
+            <Link href="/download" className="transition-colors hover:text-zinc-300">Cryzo Desktop</Link>
             <Link href="/terms" className="transition-colors hover:text-zinc-300">Terms</Link>
             <Link href="/privacy" className="transition-colors hover:text-zinc-300">Privacy</Link>
             <a href="mailto:lloyd.ebnchenge@gmail.com" className="transition-colors hover:text-zinc-300">Contact</a>

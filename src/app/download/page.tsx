@@ -3,12 +3,37 @@ import Link from "next/link";
 import { ThemeToggle } from "@/providers/ThemeProvider";
 
 export const metadata: Metadata = {
-  title: "Download | Cryzo",
-  description: "Download Cryzo Desktop for Windows.",
+  title: "Cryzo Desktop | Cryzo",
+  description:
+    "Cryzo Desktop is a Windows app for creators to plan, schedule, and publish their own posts to TikTok, YouTube, Instagram, Facebook Pages, X, and LinkedIn.",
 };
 
 const WINDOWS_ZIP =
   "https://github.com/jlois552-ui/cryzo-desktop/releases/download/v0.1.0-preview/Cryzo-Desktop-Windows-x64.zip";
+
+const features = [
+  {
+    title: "Connect your own accounts",
+    body: "Open Marketing and connect TikTok, YouTube, Instagram, Facebook Pages, X, or LinkedIn through each network's own sign-in and permission screen. Disconnect any account at any time.",
+  },
+  {
+    title: "Write and schedule posts",
+    body: "Pick a video or image, write the caption, and publish now or choose a time. Every post is one you create or approve; Cryzo never posts on its own.",
+  },
+  {
+    title: "See how your posts do",
+    body: "Follower counts and post results for the accounts you connect, in one place.",
+  },
+];
+
+const tiktok = [
+  "Log in with TikTok shows which account a post goes to, with its name and avatar.",
+  "Post directly: choose a video, see a preview, edit the caption, and pick who can view it from the options your account allows. Nothing is preselected.",
+  "Comments, Duet, and Stitch start off, and you can turn them on. Branded or promotional content can be disclosed before posting.",
+  "Nothing is sent until you click Publish now or schedule the post.",
+  "Send to TikTok drafts: the video goes to your TikTok inbox so you can finish and post it in the TikTok app.",
+  "Your follower, like, and video counts appear on the Analytics page.",
+];
 
 export default function DownloadPage() {
   return (
@@ -24,9 +49,10 @@ export default function DownloadPage() {
       </header>
 
       <article className="mx-auto max-w-3xl px-5 py-12 sm:px-8 sm:py-16">
-        <h1 className="text-4xl font-semibold tracking-[-0.04em] sm:text-5xl">Download Cryzo Desktop</h1>
+        <h1 className="text-4xl font-semibold tracking-[-0.04em] sm:text-5xl">Cryzo Desktop</h1>
         <p className="mt-4 text-base leading-8 text-[var(--cryzo-muted)]">
-          Plan, schedule, and publish your own posts to X, LinkedIn, YouTube, TikTok, Facebook Pages, and Instagram from one desktop app.
+          A Windows app for creators and small businesses to plan, schedule, and publish their own posts to TikTok,
+          YouTube, Instagram, Facebook Pages, X, and LinkedIn from one place.
         </p>
 
         <a
@@ -36,6 +62,33 @@ export default function DownloadPage() {
           Download for Windows (64-bit)
         </a>
         <p className="mt-3 text-xs text-[var(--cryzo-muted)]">Preview build · Windows 10 or 11 · macOS coming soon</p>
+
+        <section className="mt-12 border-t border-[var(--cryzo-border)] pt-8">
+          <h2 className="text-xl font-semibold">Marketing</h2>
+          <div className="mt-4 grid gap-4 sm:grid-cols-3">
+            {features.map((feature) => (
+              <div key={feature.title} className="rounded-xl border border-[var(--cryzo-border)] p-4">
+                <h3 className="text-sm font-semibold">{feature.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-[var(--cryzo-muted)]">{feature.body}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="mt-12 border-t border-[var(--cryzo-border)] pt-8">
+          <h2 className="text-xl font-semibold">Posting to TikTok</h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-[var(--cryzo-muted)] sm:text-[15px]">
+            {tiktok.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+          <p className="mt-4 text-sm leading-7 text-[var(--cryzo-muted)] sm:text-[15px]">
+            How Cryzo handles data from connected accounts is described in section 8 of our{" "}
+            <Link href="/privacy" className="text-[var(--cryzo-text)] underline underline-offset-4">Privacy Policy</Link>. To
+            delete it, see{" "}
+            <Link href="/data-deletion" className="text-[var(--cryzo-text)] underline underline-offset-4">data deletion</Link>.
+          </p>
+        </section>
 
         <section className="mt-12 border-t border-[var(--cryzo-border)] pt-8">
           <h2 className="text-xl font-semibold">Install</h2>
