@@ -5,8 +5,23 @@ import { ThemeToggle } from "@/providers/ThemeProvider";
 export const metadata: Metadata = {
   title: "Cryzo Desktop | Cryzo",
   description:
-    "Cryzo Desktop is a Windows app for creators to plan, schedule, and publish their own posts to TikTok, YouTube, Instagram, Facebook Pages, X, and LinkedIn.",
+    "Cryzo Desktop is an AI development environment for Windows: build apps with an AI agent, then plan, schedule, and publish your own posts to TikTok, YouTube, Instagram, Facebook Pages, X, and LinkedIn with Marketing.",
 };
+
+const build = [
+  {
+    title: "Build with an AI agent",
+    body: "Describe a web or mobile app and Cryzo's agent writes the code in your project folder, runs commands, and fixes errors, asking before it changes anything unless you give it full access.",
+  },
+  {
+    title: "Preview inside Cryzo",
+    body: "Your app runs in Cryzo's built-in browser, where you and the agent can click through it and mark what to change.",
+  },
+  {
+    title: "Publish",
+    body: "Put your app online when it's ready, or keep the code and run it wherever you like.",
+  },
+];
 
 const WINDOWS_ZIP =
   "https://github.com/jlois552-ui/cryzo-desktop/releases/download/v0.1.0-preview/Cryzo-Desktop-Windows-x64.zip";
@@ -51,8 +66,9 @@ export default function DownloadPage() {
       <article className="mx-auto max-w-3xl px-5 py-12 sm:px-8 sm:py-16">
         <h1 className="text-4xl font-semibold tracking-[-0.04em] sm:text-5xl">Cryzo Desktop</h1>
         <p className="mt-4 text-base leading-8 text-[var(--cryzo-muted)]">
-          A Windows app for creators and small businesses to plan, schedule, and publish their own posts to TikTok,
-          YouTube, Instagram, Facebook Pages, X, and LinkedIn from one place.
+          An AI development environment for Windows. Build your app with an AI agent, then grow it with Marketing:
+          plan, schedule, and publish your own posts to TikTok, YouTube, Instagram, Facebook Pages, X, and LinkedIn from
+          the same app.
         </p>
 
         <a
@@ -62,6 +78,18 @@ export default function DownloadPage() {
           Download for Windows (64-bit)
         </a>
         <p className="mt-3 text-xs text-[var(--cryzo-muted)]">Preview build · Windows 10 or 11 · macOS coming soon</p>
+
+        <section className="mt-12 border-t border-[var(--cryzo-border)] pt-8">
+          <h2 className="text-xl font-semibold">Build</h2>
+          <div className="mt-4 grid gap-4 sm:grid-cols-3">
+            {build.map((feature) => (
+              <div key={feature.title} className="rounded-xl border border-[var(--cryzo-border)] p-4">
+                <h3 className="text-sm font-semibold">{feature.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-[var(--cryzo-muted)]">{feature.body}</p>
+              </div>
+            ))}
+          </div>
+        </section>
 
         <section className="mt-12 border-t border-[var(--cryzo-border)] pt-8">
           <h2 className="text-xl font-semibold">Marketing</h2>
