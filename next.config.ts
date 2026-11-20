@@ -23,6 +23,14 @@ const runtimeResourceHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  // Cryzo desktop remote control: cryzo.me/remote is the address people type or scan; the web app
+  // lives at remote.cryzo.dev. The pairing code (?pair=) carries over in the query.
+  async redirects() {
+    return [
+      { source: "/remote", destination: "https://remote.cryzo.dev/", permanent: false },
+      { source: "/remote/:path*", destination: "https://remote.cryzo.dev/:path*", permanent: false },
+    ];
+  },
   // Cryzo desktop Marketing: each social network returns its OAuth sign-in here. Google and Meta only
   // accept return URLs on a domain we own, so cryzo.me forwards them to Cryzo cloud's Convex deployment.
   async rewrites() {
